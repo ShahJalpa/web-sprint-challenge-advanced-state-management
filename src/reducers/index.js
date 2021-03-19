@@ -43,7 +43,7 @@ const reducer = (state = initialState, action)=>{
         case(ADD_SMURF):
             return({
                 ...state,
-                smurfs: [...state.smurfArr, action.payload],
+                smurfs: [...state.smurfs, action.payload],
                 appIsLoading: false
             })
         

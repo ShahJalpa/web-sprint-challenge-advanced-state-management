@@ -14,7 +14,7 @@ const SmurfList = (props) => {
     //2. Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
     return(
         <div>
-            {props.smurfArr.map((smurf) => {
+            {props.smurfs.map((smurf) => {
                 return <Smurf smurf={smurf} />
             })}
         </div>
@@ -25,7 +25,7 @@ const SmurfList = (props) => {
 //1. Connect the smurfs and loading state values to the SmurfList component.
 const mapStateToProps = (state) => {
     return({
-        smurfArr: state.smurfArr,
+        smurfs: state.smurfs,
         appIsLoading: state.appIsLoading
     })
 }
