@@ -1,4 +1,4 @@
-import {FETCH_SMURF_START, FETCH_SMURF_SUCESS, FETCH_SMURF_ERROR} from '../actions/index'
+import {FETCH_SMURF_START, FETCH_SMURF_SUCESS, FETCH_SMURF_ERROR, ADD_SMURF, SET_SMURF_FORM_ERROR} from '../actions/index'
 
 //Task List:
 //1. Adds the following state values into the initialState:
@@ -38,6 +38,22 @@ const reducer = (state = initialState, action)=>{
                 error:"something is not right",
                 appIsLoading: false
             })
+
+        //6. Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
+        case(ADD_SMURF):
+            return({
+                ...state,
+                smurfs: [...state.smurfArr, action.payload],
+                appIsLoading: false
+            })
+        
+        //7. Add in a reducer case that adds in a value to the error message.
+        case(SET_SMURF_FORM_ERROR):
+            return({
+                ...state,
+                appIsLoading: false,
+                error: "please fill the required from value"
+            })
         default:
             return state;
     }
@@ -52,5 +68,4 @@ export default reducer;
 
 
 
-//6. Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
-//7. Add in a reducer case that adds in a value to the error message.
+
