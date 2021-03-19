@@ -1,4 +1,4 @@
-import {FETCH_SMURF_START, FETCH_SMURF_SUCESS} from '../actions/index'
+import {FETCH_SMURF_START, FETCH_SMURF_SUCESS, FETCH_SMURF_ERROR} from '../actions/index'
 
 //Task List:
 //1. Adds the following state values into the initialState:
@@ -21,6 +21,7 @@ const reducer = (state = initialState, action)=>{
                 appIsLoading: true,
                 error:""
             })
+
         //4. Add in a reducer case to accomidate the successful smurf api fetch.
         case(FETCH_SMURF_SUCESS):
             return({
@@ -28,6 +29,14 @@ const reducer = (state = initialState, action)=>{
                 smurfs: action.payload,
                 appIsLoading: false,
                 error:''
+            })
+
+        //5. Add in a reducer cases to accomidate the failed smurf api fetch.
+        case(FETCH_SMURF_ERROR):
+            return({
+                ...state,
+                error:"something is not right",
+                appIsLoading: false
             })
         default:
             return state;
@@ -42,6 +51,6 @@ export default reducer;
 
 
 
-//5. Add in a reducer cases to accomidate the failed smurf api fetch.
+
 //6. Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
 //7. Add in a reducer case that adds in a value to the error message.
