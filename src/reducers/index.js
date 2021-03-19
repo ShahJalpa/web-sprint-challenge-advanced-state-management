@@ -53,6 +53,7 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 appIsLoading: false,
                 error: "please fill the required from value"
+                
             })
         default:
             return state;
